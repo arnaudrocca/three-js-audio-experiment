@@ -4,6 +4,8 @@ First experiment with Three.js with the Web Audio API.
 
 Demo available [here](http://lab.arnaudrocca.fr/three-js-audio-experiment).
 
+![Preview](http://lab.arnaudrocca.fr/three-js-audio-experiment/preview.gif)
+
 #### Technologies :
 
 * [ES6 - Babel](https://github.com/babel/babel)
