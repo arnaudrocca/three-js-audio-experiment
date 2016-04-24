@@ -4,7 +4,7 @@ First experiment with Three.js using the Web Audio API.
 
 Demo available [here](http://lab.arnaudrocca.fr/three-js-audio-experiment).
 
-![Preview](http://lab.arnaudrocca.fr/three-js-audio-experiment/preview.gif)
+![Preview](http://lab.arnaudrocca.fr/three-js-audio-experiment/assets/images/preview.gif)
 
 #### Technologies :
 
