@@ -1,0 +1,4 @@
+/node_modules
+/static/assets/audio/*.mp3
+*.log*
+*.DS_Store

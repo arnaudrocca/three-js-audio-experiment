@@ -1,0 +1,46 @@
+{
+  "name": "three-js-audio-experiment",
+  "version": "1.0.0",
+  "description": "First experiment with Three.js with the Web Audio API",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run start:server & npm run watch",
+    "start:server": "node ./bin/start-server.js",
+    "build": "browserify -t [ babelify ] src/ -o static/js/main.js && uglifyjs --screw-ie8 static/js/main.js -c -o static/js/main.js",
+    "watch": "watchify -d -t [ babelify ] src/ -o static/js/main.js"
+  },
+  "author": {
+    "name": "Arnaud Rocca",
+    "url": "http://arnaudrocca.fr",
+    "mail": "arnaud.rocca@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "gsap": "^1.18.3",
+    "three": "^0.73.2"
+  },
+  "devDependencies": {
+    "@superguigui/wagner": "^0.1.21",
+    "babel-preset-es2015": "^6.1.2",
+    "babelify": "^7.2.0",
+    "browser-sync": "^2.10.0",
+    "browserify": "^12.0.1",
+    "browserify-shader": "^0.1.2",
+    "uglify-js": "^2.5.0",
+    "watchify": "^3.6.0"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shader",
+      "babelify"
+    ]
+  },
+  "babel": {
+    "ignore": [
+      "./app/vendor/*.js"
+    ],
+    "presets": [
+      "es2015"
+    ]
+  }
+}
