@@ -1,6 +1,6 @@
 # Three.js - Audio Experiment
 
-First experiment with Three.js with the Web Audio API.
+First experiment with Three.js using the Web Audio API.
 
 Demo available [here](http://lab.arnaudrocca.fr/three-js-audio-experiment).
 

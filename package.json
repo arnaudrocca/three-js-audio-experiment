@@ -1,7 +1,7 @@
 {
   "name": "three-js-audio-experiment",
   "version": "1.0.0",
-  "description": "First experiment with Three.js with the Web Audio API",
+  "description": "First experiment with Three.js using the Web Audio API",
   "main": "index.js",
   "scripts": {
     "start": "npm run start:server & npm run watch",
