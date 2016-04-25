@@ -1,6 +1,5 @@
 import 'gsap'
 
-import numberUtils from './utils/number-utils'
 import Audio from './audio'
 import Scene from './scene/scene'
 import Icosahedron from './objects/icosahedron'
@@ -11,9 +10,6 @@ class App {
     * @constructor
     */
     constructor() {
-
-        this.DELTA_TIME = 0;
-        this.LAST_TIME = Date.now();
 
         this.width = window.innerWidth;
         this.height = window.innerHeight;
@@ -72,11 +68,8 @@ class App {
     */
     update() {
 
-        this.DELTA_TIME = Date.now() - this.LAST_TIME;
-        this.LAST_TIME = Date.now();
-
-        for (let i in this.icosahedrons) {
-            this.icosahedrons[i].update(this.DELTA_TIME, this.audio, i);
+        for (let icosahedron of this.icosahedrons) {
+            icosahedron.update(this.audio);
         }
 
         this.scene.render();
