@@ -33,7 +33,7 @@ class Scene {
 
         this.composer = new Wagner.Composer(this.renderer);
         this.bloomPass = new BloomPass({
-            blurAmount: 1,
+            blurAmount: .1,
             applyZoomBlur: true
         });
 

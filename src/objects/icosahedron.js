@@ -7,11 +7,11 @@ class Icosahedron {
     */
     constructor(id) {
 
-        this.id = id;
+				this.id = id;
 
         const colors = [0xFF0000, 0xFF7700, 0xFFFF00];
 
-        const size = 120,
+        const size = 100,
             detail = this.id + 1,
             geometry = new THREE.IcosahedronGeometry(size, detail),
             material = new THREE.MeshBasicMaterial({
@@ -33,11 +33,12 @@ class Icosahedron {
     update(audio) {
 
         const audioData = audio.getAudioData(3)[this.id],
-            scale = 1 + (audioData / 80);
+            rotate = .01 + (audioData / 4000),
+			scale = 1 + (audioData / 50);
 
-        this.mesh.rotation.x += .01 + (audioData / 4000);
-        this.mesh.rotation.y += .01 + (audioData / 4000);
-        this.mesh.rotation.z += .01 + (audioData / 4000);
+        this.mesh.rotation.x += rotate;
+        this.mesh.rotation.y += rotate;
+        this.mesh.rotation.z += rotate;
 
         this.mesh.scale.set(scale, scale, scale);
 
