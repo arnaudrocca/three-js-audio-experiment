@@ -7,7 +7,7 @@ class Icosahedron {
     */
     constructor(id) {
 
-				this.id = id;
+		this.id = id;
 
         const colors = [0xFF0000, 0xFF7700, 0xFFFF00];
 

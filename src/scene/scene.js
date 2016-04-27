@@ -1,6 +1,7 @@
 import THREE from 'three'
 import Wagner from '@superguigui/wagner'
 import BloomPass from '@superguigui/wagner/src/passes/bloom/MultiPassBloomPass'
+import Noise from '@superguigui/wagner/src/passes/noise/noise'
 
 class Scene {
 
@@ -21,20 +22,25 @@ class Scene {
         this.camera = new THREE.PerspectiveCamera(50, this.width / this.height, 1, 2000);
         this.camera.position.z = 1000;
 
-        this.initPostprocessing();
+        this.initPostProcessing();
 
     }
 
     /**
     * @method
-    * @name initPostprocessing
+    * @name initPostProcessing
     */
-    initPostprocessing() {
+    initPostProcessing() {
 
         this.composer = new Wagner.Composer(this.renderer);
         this.bloomPass = new BloomPass({
-            blurAmount: .1,
-            applyZoomBlur: true
+            applyZoomBlur: true,
+            zoomBlurStrength: .1,
+            blurAmount: 1
+        });
+        this.noise = new Noise({
+            amount: .03,
+            speed: 1
         });
 
     }
@@ -76,6 +82,7 @@ class Scene {
         this.composer.reset();
         this.composer.render(this.scene, this.camera);
         this.composer.pass(this.bloomPass);
+        this.composer.pass(this.noise);
         this.composer.toScreen();
 
     }

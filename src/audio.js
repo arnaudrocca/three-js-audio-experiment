@@ -41,10 +41,11 @@ class Audio {
                 this.audioSource.connect(this.analyser);
                 this.analyser.connect(this.audioCtx.destination);
 
-                // Play sound
+                // Play the sound
                 this.audioSource.crossOrigin = 'anonymous';
                 this.audioSource.start(this.audioCtx.currentTime);
 
+                // Loop the sound
                 this.audioSource.loop = true;
 
             }.bind(this), function() {
@@ -89,7 +90,7 @@ class Audio {
 
     /**
 	* @method
-	* @name getFrequencyData
+	* @name getAudioData
     * @description Define how much information you want to get from the original frequency data
     * @param {number} separator - The length of the frequencyArray
 	* @return {array} audioData
