@@ -1,5 +1,7 @@
 /node_modules
-/static/assets/audio/*.mp3
-preview.gif
+
 *.log*
 *.DS_Store
+
+/static/assets/audio/*.mp3
+preview.gif

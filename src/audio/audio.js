@@ -1,8 +1,8 @@
 class Audio {
 
     /**
-	* @constructor
-	*/
+	 * @constructor
+	 */
     constructor() {
 
         this.soundPath = '//lab.arnaudrocca.fr/three-js-audio-experiment/assets/audio/DMX-Gonna_give_it_to_ya.mp3';
@@ -15,10 +15,10 @@ class Audio {
     }
 
     /**
-	* @method
-	* @name loadSound
-	* @description Load the sound
-	*/
+	 * @method
+	 * @name loadSound
+	 * @description Load the sound
+	 */
     loadSound() {
 
         let request = new XMLHttpRequest();
@@ -61,13 +61,13 @@ class Audio {
     }
 
     /**
-	* @method
-	* @name splitFrenquencyArray
-	* @description Split the frequency data
-    * @param {array} frequencyData
-    * @param {number} separator - The length of the frequencyArray
-    * @return {array} frequencyArray
-	*/
+	 * @method
+	 * @name splitFrenquencyArray
+	 * @description Split the frequency data
+     * @param {array} frequencyData
+     * @param {number} separator - The length of the frequencyArray
+     * @return {array} frequencyArray
+	 */
     splitFrenquencyArray(frequencyData, separator) {
 
         let tab = Object.keys(frequencyData).map(function(key) {
@@ -89,12 +89,12 @@ class Audio {
     }
 
     /**
-	* @method
-	* @name getAudioData
-    * @description Define how much information you want to get from the original frequency data
-    * @param {number} separator - The length of the frequencyArray
-	* @return {array} audioData
-	*/
+	 * @method
+	 * @name getAudioData
+     * @description Define how much information you want to get from the original frequency data
+     * @param {number} separator - The length of the frequencyArray
+	 * @return {array} audioData
+	 */
     getAudioData(separator) {
 
         this.analyser.getByteFrequencyData(this.frequencyData);

@@ -6,8 +6,8 @@ import Noise from '@superguigui/wagner/src/passes/noise/noise'
 class Scene {
 
     /**
-    * @constructor
-    */
+     * @constructor
+     */
     constructor() {
 
         this.width = window.innerWidth;
@@ -27,30 +27,32 @@ class Scene {
     }
 
     /**
-    * @method
-    * @name initPostProcessing
-    */
+     * @method
+     * @name initPostProcessing
+     */
     initPostProcessing() {
 
         this.composer = new Wagner.Composer(this.renderer);
+
         this.bloomPass = new BloomPass({
             applyZoomBlur: true,
-            zoomBlurStrength: .1,
-            blurAmount: 1
+            zoomBlurStrength: .05,
+            blurAmount: .1
         });
+
         this.noise = new Noise({
-            amount: .03,
-            speed: 1
+            amount: .02,
+            speed: .5
         });
 
     }
 
     /**
-    * @method
-    * @name add
-    * @description Add a child to the scene
-    * @param {object} child - A THREE object
-    */
+     * @method
+     * @name add
+     * @description Add a child to the scene
+     * @param {object} child - A THREE object
+     */
     add(child) {
 
         this.scene.add(child);
@@ -58,11 +60,11 @@ class Scene {
     }
 
     /**
-    * @method
-    * @name remove
-    * @description Remove a child from the scene
-    * @param {object} child - A THREE object
-    */
+     * @method
+     * @name remove
+     * @description Remove a child from the scene
+     * @param {object} child - A THREE object
+     */
     remove(child) {
 
         this.scene.remove(child);
@@ -70,14 +72,11 @@ class Scene {
     }
 
     /**
-    * @method
-    * @name render
-    * @description Renders/Draw the scene
-    */
+     * @method
+     * @name render
+     * @description Renders/Draw the scene
+     */
     render() {
-
-        this.renderer.autoClearColor = true;
-        // this.renderer.render(this.scene, this.camera);
 
         this.composer.reset();
         this.composer.render(this.scene, this.camera);
@@ -88,12 +87,12 @@ class Scene {
     }
 
     /**
-    * @method
-    * @name resize
-    * @description Resize the scene according to screen size
-    * @param {number} newWidth
-    * @param {number} newHeight
-    */
+     * @method
+     * @name resize
+     * @description Resize the scene according to screen size
+     * @param {number} newWidth
+     * @param {number} newHeight
+     */
     resize(newWidth, newHeight) {
 
         this.camera.aspect = newWidth / newHeight;

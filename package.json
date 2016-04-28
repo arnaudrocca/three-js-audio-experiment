@@ -15,9 +15,13 @@
     "mail": "arnaud.rocca@gmail.com"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArnaudRocca/three-js-audio-experiment.git"
+  },
+  "homepage": "https://github.com/ArnaudRocca/three-js-audio-experiment",
   "dependencies": {
-    "gsap": "^1.18.3",
-    "three": "^0.73.2"
+    "three": "^0.76.1"
   },
   "devDependencies": {
     "@superguigui/wagner": "^0.1.21",
@@ -36,9 +40,6 @@
     ]
   },
   "babel": {
-    "ignore": [
-      "./app/vendor/*.js"
-    ],
     "presets": [
       "es2015"
     ]

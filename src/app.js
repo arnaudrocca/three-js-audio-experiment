@@ -1,14 +1,12 @@
-import 'gsap'
-
-import Audio from './audio'
+import Audio from './audio/audio'
 import Scene from './scene/scene'
 import Icosahedron from './objects/icosahedron'
 
 class App {
 
     /**
-    * @constructor
-    */
+     * @constructor
+     */
     constructor() {
 
         this.width = window.innerWidth;
@@ -34,14 +32,11 @@ class App {
     }
 
     /**
-    * @method
-    * @name onResize
-    * @description Triggered when window is resized
-    * @param  {object} e - event
-    */
-    onResize(e) {
-
-        const event = e || window.e;
+     * @method
+     * @name onResize
+     * @description Triggered when window is resized
+     */
+    onResize() {
 
         this.width = window.innerWidth;
         this.height = window.innerHeight;
@@ -51,9 +46,9 @@ class App {
     }
 
     /**
-    * @method
-    * @name addListeners
-    */
+     * @method
+     * @name addListeners
+     */
     addListeners() {
 
         window.addEventListener('resize', this.onResize.bind(this));
@@ -62,10 +57,10 @@ class App {
     }
 
     /**
-    * @method
-    * @name update
-    * @description Triggered on every TweenMax tick
-    */
+     * @method
+     * @name update
+     * @description Triggered on every TweenMax tick
+     */
     update() {
 
         for (let icosahedron of this.icosahedrons) {
