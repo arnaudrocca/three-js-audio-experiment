@@ -10,7 +10,7 @@ Demo available [here](http://lab.arnaudrocca.fr/three-js-audio-experiment).
 
 * [ES6 - Babel](https://github.com/babel/babel)
 * [Three.js](https://github.com/mrdoob/three.js)
-* [GSAP - Tweenmax](http://greensock.com/tweenmax)
+* [GSAP - TweenMax](http://greensock.com/tweenmax)
 * [Web Audio API](https://webaudio.github.io/web-audio-api)
 
 #### Setup :

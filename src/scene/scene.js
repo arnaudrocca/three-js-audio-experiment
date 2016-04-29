@@ -36,8 +36,8 @@ class Scene {
 
         this.bloomPass = new BloomPass({
             applyZoomBlur: true,
-            zoomBlurStrength: .05,
-            blurAmount: .1
+            zoomBlurStrength: .1,
+            blurAmount: 1
         });
 
         this.noise = new Noise({
@@ -78,6 +78,7 @@ class Scene {
      */
     render() {
 
+        this.renderer.autoClearColor = true;
         this.composer.reset();
         this.composer.render(this.scene, this.camera);
         this.composer.pass(this.bloomPass);
