@@ -4,4 +4,6 @@
 *.DS_Store
 
 /static/assets/audio/*.mp3
+/static/js/main.js
+
 preview.gif
