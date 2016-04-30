@@ -29,13 +29,11 @@
     "babelify": "^7.2.0",
     "browser-sync": "^2.10.0",
     "browserify": "^12.0.1",
-    "browserify-shader": "^0.1.2",
     "uglify-js": "^2.5.0",
     "watchify": "^3.6.0"
   },
   "browserify": {
     "transform": [
-      "browserify-shader",
       "babelify"
     ]
   },
