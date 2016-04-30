@@ -67,7 +67,7 @@ class App {
             icosahedron.update(this.audio);
         }
 
-        this.scene.render();
+        this.scene.render(this.audio);
 
     }
 

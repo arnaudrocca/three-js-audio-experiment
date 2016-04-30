@@ -65,10 +65,10 @@ class Audio {
 	 * @name splitFrenquencyArray
 	 * @description Split the frequency data
      * @param {array} frequencyData
-     * @param {number} separator - The length of the frequencyArray
+     * @param {number} split - The length of the frequencyArray
      * @return {array} frequencyArray
 	 */
-    splitFrenquencyArray(frequencyData, separator) {
+    splitFrenquencyArray(frequencyData, split) {
 
         let tab = Object.keys(frequencyData).map(function(key) {
             return frequencyData[key];
@@ -79,7 +79,7 @@ class Audio {
             i = 0;
 
         while (i < length) {
-            let size = Math.ceil((length - i) / separator--);
+            let size = Math.ceil((length - i) / split--);
             frequencyArray.push(tab.slice(i, i + size));
             i += size;
         }
@@ -92,28 +92,46 @@ class Audio {
 	 * @method
 	 * @name getAudioData
      * @description Define how much information you want to get from the original frequency data
-     * @param {number} separator - The length of the frequencyArray
-	 * @return {array} audioData
+     * @param {number} split - The number of splitted array
+	 * @return {array} audioData / {number} average
 	 */
-    getAudioData(separator) {
+    getAudioData(split = 1) {
 
         this.analyser.getByteFrequencyData(this.frequencyData);
-        let audioData = new Array();
 
-        // Split array
-		const frequencyArray = this.splitFrenquencyArray(this.frequencyData, separator);
+        if (split > 1) {
 
-		// Make average of frenquency array entries
-		for (let i = 0; i < frequencyArray.length; i++) {
-			let average = 0;
+            // Split the frequency array
+		    const frequencyArray = this.splitFrenquencyArray(this.frequencyData, split);
+            
+            let audioData = new Array();
 
-			for (let j = 0; j < frequencyArray[i].length; j++) {
-				average += frequencyArray[i][j];
-			}
-			audioData[i] = average / frequencyArray[i].length;
-		}
+            // Make average of frenquency array entries
+            for (let i in frequencyArray) {
+                const splittedArray = frequencyArray[i];
+                let average = 0;
 
-        return audioData;
+                for (let frequency of splittedArray) {
+                    average += frequency;
+                }
+                audioData[i] = average / splittedArray.length;
+            }
+
+            return audioData;
+
+        } else {
+
+            // Calculate the average
+            let average = 0;
+
+            for (let frequency of this.frequencyData) {
+                average += frequency;
+            }
+            average = average / this.frequencyData.length;
+
+            return average;
+
+        }
 
     }
 

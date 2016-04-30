@@ -35,13 +35,11 @@ class Scene {
         this.composer = new Wagner.Composer(this.renderer);
 
         this.bloomPass = new BloomPass({
-            applyZoomBlur: true,
-            zoomBlurStrength: .1,
-            blurAmount: 1
+            applyZoomBlur: true
         });
 
         this.noise = new Noise({
-            amount: .02,
+            amount: .03,
             speed: .5
         });
 
@@ -76,7 +74,10 @@ class Scene {
      * @name render
      * @description Renders/Draw the scene
      */
-    render() {
+    render(audio) {
+
+        this.bloomPass.params.zoomBlurStrength = audio.getAudioData() / 400;
+        this.bloomPass.params.blurAmount = audio.getAudioData() / 5;
 
         this.renderer.autoClearColor = true;
         this.composer.reset();
