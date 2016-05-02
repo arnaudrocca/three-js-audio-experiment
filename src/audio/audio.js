@@ -70,17 +70,13 @@ class Audio {
 	 */
     splitFrenquencyArray(frequencyData, split) {
 
-        let tab = Object.keys(frequencyData).map(function(key) {
-            return frequencyData[key];
-        });
-
-        let length = tab.length,
+        let length = frequencyData.length,
             frequencyArray = new Array(),
             i = 0;
 
         while (i < length) {
             let size = Math.ceil((length - i) / split--);
-            frequencyArray.push(tab.slice(i, i + size));
+            frequencyArray.push(frequencyData.slice(i, i + size));
             i += size;
         }
 
@@ -103,7 +99,7 @@ class Audio {
 
             // Split the frequency array
 		    const frequencyArray = this.splitFrenquencyArray(this.frequencyData, split);
-            
+
             let audioData = new Array();
 
             // Make average of frenquency array entries
