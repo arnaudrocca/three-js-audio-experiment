@@ -5,10 +5,8 @@ class Audio {
 	 */
     constructor() {
 
-        this.soundPath = '//lab.arnaudrocca.fr/three-js-audio-experiment/assets/audio/DMX-Gonna_give_it_to_ya.mp3';
-
-        const constructor = window.AudioContext || window.webkitAudioContext;
-        this.audioCtx = new constructor();
+        const Constructor = window.AudioContext || window.webkitAudioContext;
+        this.audioCtx = new Constructor();
         this.analyser = this.audioCtx.createAnalyser();
         this.frequencyData = new Uint8Array(this.analyser.frequencyBinCount);
 
@@ -21,19 +19,21 @@ class Audio {
 	 */
     loadSound() {
 
-        let request = new XMLHttpRequest();
+        this.soundPath = '//lab.arnaudrocca.fr/three-js-audio-experiment/assets/audio/DMX-Gonna_give_it_to_ya.mp3';
+
+        const request = new XMLHttpRequest();
         request.open('GET', this.soundPath, true);
         request.responseType = 'arraybuffer';
 
         // Decode asynchronously
-        request.onload = function() {
+        request.onload = () => {
 
-            this.audioCtx.decodeAudioData(request.response, function(buffer) {
+            this.audioCtx.decodeAudioData(request.response, (buffer) => {
 
-                // Success callback
-                this.audioBuffer = buffer;
+                // SUCCESS CALLBACK
 
                 // Create sound from buffer
+                this.audioBuffer = buffer;
                 this.audioSource = this.audioCtx.createBufferSource();
                 this.audioSource.buffer = this.audioBuffer;
 
@@ -41,20 +41,21 @@ class Audio {
                 this.audioSource.connect(this.analyser);
                 this.analyser.connect(this.audioCtx.destination);
 
-                // Play the sound
+                // Audio source params
                 this.audioSource.crossOrigin = 'anonymous';
-                this.audioSource.start(this.audioCtx.currentTime);
-
-                // Loop the sound
                 this.audioSource.loop = true;
 
-            }.bind(this), function() {
+                // Play the sound
+                this.audioSource.start(this.audioCtx.currentTime);
 
-                // Error callback
+            }, (error) => {
+
+                // ERROR CALLBACK
+                console.info(`The following error occured : \n${error}`);
 
             });
 
-        }.bind(this);
+        }
 
         request.send();
 
@@ -70,9 +71,9 @@ class Audio {
 	 */
     splitFrenquencyArray(frequencyData, split) {
 
-        let length = frequencyData.length,
-            frequencyArray = new Array(),
-            i = 0;
+        const length = frequencyData.length;
+        const frequencyArray = new Array();
+        let i = 0;
 
         while (i < length) {
             let size = Math.ceil((length - i) / split--);
