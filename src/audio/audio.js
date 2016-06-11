@@ -51,7 +51,7 @@ class Audio {
             }, (error) => {
 
                 // ERROR CALLBACK
-                console.info(`The following error occured : \n${error}`);
+                console.warn(`The following error occured : \n${error}`);
 
             });
 
