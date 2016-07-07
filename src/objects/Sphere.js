@@ -1,6 +1,6 @@
 import THREE from 'three'
 
-class Icosahedron {
+class Sphere {
 
     /**
      * @constructor
@@ -46,4 +46,4 @@ class Icosahedron {
 
 }
 
-export default Icosahedron
+export default Sphere

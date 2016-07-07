@@ -1,6 +1,6 @@
-import Audio from './audio/audio'
-import Scene from './scene/scene'
-import Icosahedron from './objects/icosahedron'
+import Audio from './utils/Audio'
+import Scene from './utils/Scene'
+import Sphere from './objects/Sphere'
 
 class App {
 
@@ -14,12 +14,12 @@ class App {
 
         this.audio = new Audio();
         this.scene = new Scene();
-        this.icosahedrons = new Array();
+        this.spheres = new Array();
 
         const length = 3;
         for (let i = 0; i < length; i++) {
-            this.icosahedrons[i] = new Icosahedron(i);
-            this.scene.add(this.icosahedrons[i].mesh);
+            this.spheres[i] = new Sphere(i);
+            this.scene.add(this.spheres[i].mesh);
         }
 
         const root = document.body.querySelector('.app');
@@ -63,8 +63,8 @@ class App {
      */
     update() {
 
-        for (let icosahedron of this.icosahedrons) {
-            icosahedron.update(this.audio);
+        for (let sphere of this.spheres) {
+            sphere.update(this.audio);
         }
 
         this.scene.render(this.audio);
