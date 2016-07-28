@@ -19,10 +19,10 @@ class Audio {
 	 */
     loadSound() {
 
-        this.soundPath = '//lab.arnaudrocca.fr/three-js-audio-experiment/assets/audio/DMX-Gonna_give_it_to_ya.mp3';
+        const soundPath = '//lab.arnaudrocca.fr/three-js-audio-experiment/assets/audio/DMX-Gonna_give_it_to_ya.mp3';
 
         const request = new XMLHttpRequest();
-        request.open('GET', this.soundPath, true);
+        request.open('GET', soundPath, true);
         request.responseType = 'arraybuffer';
 
         // Decode asynchronously

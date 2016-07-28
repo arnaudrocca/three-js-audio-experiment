@@ -79,7 +79,6 @@ class Scene {
         this.bloomPass.params.zoomBlurStrength = audio.getAudioData() / 400;
         this.bloomPass.params.blurAmount = audio.getAudioData() / 5;
 
-        this.renderer.autoClearColor = true;
         this.composer.reset();
         this.composer.render(this.scene, this.camera);
         this.composer.pass(this.bloomPass);

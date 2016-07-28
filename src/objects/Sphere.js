@@ -9,18 +9,18 @@ class Sphere {
 
 		this.id = id;
 
-        const colors = [0xFF0000, 0xFF7700, 0xFFFF00];
+        const colors = [0xFF0000, 0xFF7700, 0xFFFF00],
+            size = 100,
+            detail = this.id + 1;
 
-        const size = 100,
-            detail = this.id + 1,
-            geometry = new THREE.IcosahedronGeometry(size, detail),
-            material = new THREE.MeshBasicMaterial({
-                wireframe: true,
-                wireframeLinewidth: (this.id == 2) ? 1 : 2,
-                color: colors[this.id]
-            });
+		this.geometry = new THREE.IcosahedronGeometry(size, detail);
+        this.material = new THREE.MeshBasicMaterial({
+            wireframe: true,
+            wireframeLinewidth: (this.id == 2) ? 1 : 2,
+        	color: colors[this.id]
+		});
 
-        this.mesh = new THREE.Mesh(geometry, material);
+        this.mesh = new THREE.Mesh(this.geometry, this.material);
 
     }
 
